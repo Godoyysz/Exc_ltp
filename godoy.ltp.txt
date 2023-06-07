@@ -1,0 +1,112 @@
+ex 01
+class Animal {
+  constructor(nome, idade, especie) {
+    this.nome = nome;
+    this.idade = idade;
+    this.especie = especie;
+  }
+
+  mostrarAtributos(){
+    try{
+    return this.atributos();
+    } 
+   catch (erro){
+    console.log(erro.stack)
+   }
+  }
+
+
+  atributos() {
+    if(this.nome != "" && this.idade != "" && this.especie != ""){
+    return {
+      nome: this.nome,
+      idade: this.idade,
+      especie: this.especie
+    } 
+  } else{
+    throw new Error("esta faltando nome, idade ou especie do seu pet!!")
+  }
+
+  }
+}
+
+const meuAnimal = new Animal("", "3", "cachorro");
+const atributos = meuAnimal.mostrarAtributos();
+
+// Imprimindo os atributos
+console.log(atributos.nome);   
+console.log(atributos.idade);  
+console.log(atributos.especie); 
+
+ex02
+class Estudante {
+  constructor(nome, idade, turma) {
+    this.nome = nome;
+    this.idade = idade;
+    this.turma = turma;
+  }
+
+  mostrarAtributos() {
+    try{ 
+    return this.atributos();
+    } catch (erro){
+      console.log(erro.name)
+    }
+  }
+
+  atributos() {
+    if(this.nome != "" && this.idade != "" && this.turma != ""){
+    return {
+      nome: this.nome,
+      idade: this.idade,
+      turma: this.turma
+    }
+   } else{
+    throw new Error("está faltando nome, idade ou turma. Confere aí")
+   }
+  }
+}
+
+const estudante = new Estudante("João", 16, "3A");
+
+const atributos = estudante.mostrarAtributos();
+
+console.log(atributos.nome);   
+console.log(atributos.idade);  
+console.log(atributos.turma);
+
+ex03
+class NerdIF {
+  constructor(estudante, cosplay, nota_cosplay) {
+    this.estudante = estudante;
+    this.cosplay = cosplay;
+    this.nota_cosplay = nota_cosplay;
+  }
+
+  retornarAtributos() {
+    try{
+    return this.atributos()
+    } catch (erro){
+      console.log(erro.message)
+    }
+  }
+
+  atributos() {
+    if(this.estudante != "" && this.cosplay != "" && this.nota_cosplay != ""){
+    return {
+      estudante: this.estudante,
+      cosplay: this.cosplay,
+      nota_cosplay: this.nota_cosplay
+    }
+  } else{
+    throw new Error("está faltando alguma informação")
+  }
+  }
+}
+
+const aluno = new NerdIF("João", "Homem-Aranha", "9.5");
+const atributos = aluno.retornarAtributos();
+
+console.log(atributos.estudante); 
+console.log(atributos.cosplay);   
+console.log(atributos.nota_cosplay);
